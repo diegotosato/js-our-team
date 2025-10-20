@@ -37,7 +37,12 @@ const profiles = [
   }
 ];
 
-
+/**
+ * 
+ * @param {object} oggetto di un array 
+ * @returns markup
+ * crea il markup della card a partire da un oggetto e le sue rispettive chiavi
+ */
 function cardMarkup(object) {
   return `
    <div class="col">
@@ -59,6 +64,13 @@ function cardMarkup(object) {
 }
 
 
+
+/**
+ * 
+ * @param {domEl} DOM_Element variabile dove ho isolato l'elemento della DOM dove voglio che vengano inserite le mie card
+ * @param {array} array di riferimento dove fare il loop
+ * @returns DOM Element
+ */
 function createCards(domEl, array) {
   for (let i = 0; i < array.length; i++) {
 
@@ -87,12 +99,17 @@ PSEUDO-CODE
 
 //isolare il nodo della dom dove voglio inserire le card
 const domEl = document.querySelector('main .row')
-// console.log(domEl);
 
 
-
+//isolo il modulo form per aggiungere evento al submit
 const formEl = document.querySelector('form')
 
+
+
+
+//al submit, creo un nuovo oggetto le cui chiavi hanno i valori degli input
+//successivamente pusho il nuovo oggetto nell'array fornito
+//successivamente con il metodo innerHTML e l'operatore "+-" richiamo la funzione di creazione markup e dichiaro l'oggetto da cui prendere le chiavi
 formEl.addEventListener('submit', (event) => {
   event.preventDefault()
 
@@ -115,4 +132,9 @@ formEl.addEventListener('submit', (event) => {
 
 })
 
+
+
+//richiamo la funzione per creare le card, definisco i parametri
+  //DOM_Element -> domEl (il mio nodo della dom dove voglio che venga inserito il mio markup)
+  //array -> profiles (array di oggetti fornito)
 createCards(domEl, profiles)
