@@ -96,3 +96,10 @@ const domEl = document.querySelector('main .row')
 createCards(domEl, profiles)
 
 
+const form = document.querySelector('form')
+
+const imageField = document.getElementById('image')
+const nameField = document.getElementById('name')
+const roleField = document.getElementById('role')
+const emailField = document.getElementById('email')
+
