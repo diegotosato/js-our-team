@@ -38,19 +38,43 @@ const profiles = [
 ];
 
 
-// const cardMarkup = `
-// <div class="bg-dark mb-3 d-flex p-0">
 
-//   <img src="./assets/img/male1.png" class="d-block" alt="profile_image">
+function createCards(domEl, array) {
+  for (let i = 0; i < array.length; i++) {
 
-//   <div class="p-3 d-flex flex-column justify-content-around">
-//     <h4 class="card-title text-light">Name</h4>
-//     <p class="card-text text-light m-0">Job</p>
-//     <p class="card-text text-primary fw-bold m-0">Mail</p>
-//   </div>
+    //recupero tutti gli oggetti singoli dell'array
+    const thisProfile = array[i];
+    // console.log(thisProfile);
 
-// </div>
-// `
+
+    //destrutturo l'oggetto e isolo tutte le sue chiavi nelle variabili
+    const { name, role, email, img } = thisProfile
+    // console.log(name, role, email, img);
+
+
+    const cardMarkup = `
+  <div class="col">
+
+    <div class="bg-dark d-flex p-0">
+
+      <img src="./assets/${img}" class="d-block" alt="profile_image">
+
+      <div class="p-3 d-flex flex-column justify-content-around">
+        <h4 class="card-title text-light">${name}</h4>
+        <p class="card-text text-light m-0">${role}</p>
+        <p class="card-text text-primary fw-bold m-0">${email}</p>
+      </div>
+
+    </div>
+
+  </div>
+  `
+
+    domEl.innerHTML += cardMarkup
+
+  }
+}
+
 
 /*
 PSEUDO-CODE
@@ -69,39 +93,40 @@ PSEUDO-CODE
 const domEl = document.querySelector('main .row')
 // console.log(domEl);
 
-
+createCards(domEl, profiles)
 
 //ciclare all'interno dell'array per recuperare ogni singolo oggetto
-for (let i = 0; i < profiles.length; i++) {
+// for (let i = 0; i < profiles.length; i++) {
 
-  //recupero tutti gli oggetti singoli dell'array
-  const thisProfile = profiles[i];
-  // console.log(thisProfile);
-
-
-  //destrutturo l'oggetto e isolo tutte le sue chiavi nelle variabili
-  const { name, role, email, img } = thisProfile
-  // console.log(name, role, email, img);
+//   //recupero tutti gli oggetti singoli dell'array
+//   const thisProfile = profiles[i];
+//   // console.log(thisProfile);
 
 
-  const cardMarkup = `
-  <div class="col">
+//   //destrutturo l'oggetto e isolo tutte le sue chiavi nelle variabili
+//   const { name, role, email, img } = thisProfile
+//   // console.log(name, role, email, img);
 
-    <div class="bg-dark d-flex p-0">
 
-      <img src="./assets/${img}" class="d-block" alt="profile_image">
+//   const cardMarkup = `
+//   <div class="col">
 
-      <div class="p-3 d-flex flex-column justify-content-around">
-        <h4 class="card-title text-light">${name}</h4>
-        <p class="card-text text-light m-0">${role}</p>
-        <p class="card-text text-primary fw-bold m-0">${email}</p>
-      </div>
+//     <div class="bg-dark d-flex p-0">
 
-    </div>
+//       <img src="./assets/${img}" class="d-block" alt="profile_image">
 
-  </div>
-  `
+//       <div class="p-3 d-flex flex-column justify-content-around">
+//         <h4 class="card-title text-light">${name}</h4>
+//         <p class="card-text text-light m-0">${role}</p>
+//         <p class="card-text text-primary fw-bold m-0">${email}</p>
+//       </div>
 
-  domEl.innerHTML += cardMarkup
+//     </div>
 
-}
+//   </div>
+//   `
+
+//   domEl.innerHTML += cardMarkup
+
+// }
+
