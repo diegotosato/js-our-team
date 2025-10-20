@@ -38,41 +38,37 @@ const profiles = [
 ];
 
 
-
-function createCards(domEl, array) {
-  for (let i = 0; i < array.length; i++) {
-
-    //recupero tutti gli oggetti singoli dell'array
-    const thisProfile = array[i];
-    // console.log(thisProfile);
-
-
-    //destrutturo l'oggetto e isolo tutte le sue chiavi nelle variabili
-    const { name, role, email, img } = thisProfile
-    // console.log(name, role, email, img);
-
-
-    const cardMarkup = `
-  <div class="col">
+function cardMarkup(object) {
+  return `
+   <div class="col">
 
     <div class="bg-dark d-flex p-0">
 
-      <img src="./assets/${img}" class="d-block" alt="profile_image">
+      <img src="./assets/${object.img}" class="d-block" alt="profile_image">
 
       <div class="p-3 d-flex flex-column justify-content-around">
-        <h4 class="card-title text-light">${name}</h4>
-        <p class="card-text text-light m-0">${role}</p>
-        <p class="card-text text-primary fw-bold m-0">${email}</p>
+        <h4 class="card-title text-light">${object.name}</h4>
+        <p class="card-text text-light m-0">${object.role}</p>
+        <p class="card-text text-primary fw-bold m-0">${object.email}</p>
       </div>
 
     </div>
 
   </div>
   `
+}
 
-    domEl.innerHTML += cardMarkup
 
+function createCards(domEl, array) {
+  for (let i = 0; i < array.length; i++) {
+
+    //recupero tutti gli oggetti singoli dell'array
+    const thisProfile = array[i];
+
+    domEl.innerHTML += cardMarkup(thisProfile)
   }
+  return domEl
+
 }
 
 
@@ -93,13 +89,30 @@ PSEUDO-CODE
 const domEl = document.querySelector('main .row')
 // console.log(domEl);
 
+
+
+const formEl = document.querySelector('form')
+
+formEl.addEventListener('submit', (event) => {
+  event.preventDefault()
+
+
+  const imageField = document.getElementById('image')
+  const nameField = document.getElementById('name')
+  const roleField = document.getElementById('role')
+  const emailField = document.getElementById('email')
+
+  const newProfile = {
+    name: nameField.value,
+    role: roleField.value,
+    email: emailField.value,
+    img: imageField.value
+  }
+
+  profiles.push(newProfile)
+
+  domEl.innerHTML += cardMarkup(newProfile)
+
+})
+
 createCards(domEl, profiles)
-
-
-const form = document.querySelector('form')
-
-const imageField = document.getElementById('image')
-const nameField = document.getElementById('name')
-const roleField = document.getElementById('role')
-const emailField = document.getElementById('email')
-
