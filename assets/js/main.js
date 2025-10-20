@@ -1,4 +1,4 @@
-const teamMembers = [
+const profiles = [
   {
     name: "Marco Bianchi",
     role: "Designer",
@@ -38,19 +38,19 @@ const teamMembers = [
 ];
 
 
-const cardMarkup = `
-<div class="bg-dark mb-3 d-flex p-0">
+// const cardMarkup = `
+// <div class="bg-dark mb-3 d-flex p-0">
 
-  <img src="./assets/img/male1.png" class="d-block" alt="profile_image">
+//   <img src="./assets/img/male1.png" class="d-block" alt="profile_image">
 
-  <div class="p-3 d-flex flex-column justify-content-around">
-    <h4 class="card-title text-light">Name</h4>
-    <p class="card-text text-light m-0">Job</p>
-    <p class="card-text text-primary fw-bold m-0">Mail</p>
-  </div>
+//   <div class="p-3 d-flex flex-column justify-content-around">
+//     <h4 class="card-title text-light">Name</h4>
+//     <p class="card-text text-light m-0">Job</p>
+//     <p class="card-text text-primary fw-bold m-0">Mail</p>
+//   </div>
 
-</div>
-`
+// </div>
+// `
 
 /*
 PSEUDO-CODE
@@ -67,4 +67,37 @@ PSEUDO-CODE
 
 //isolare il nodo della dom dove voglio inserire le card
 const domEl = document.querySelector('main .row')
-console.log(domEl);
+// console.log(domEl);
+
+
+
+//ciclare all'interno dell'array per recuperare ogni singolo oggetto
+for (let i = 0; i < profiles.length; i++) {
+
+  //recupero tutti gli oggetti singoli dell'array
+  const thisProfile = profiles[i];
+  // console.log(thisProfile);
+
+
+  //destrutturo l'oggetto e isolo tutte le sue chiavi nelle variabili
+  const { name, role, email, img } = thisProfile
+  // console.log(name, role, email, img);
+
+
+  const cardMarkup = `
+  <div class="bg-dark mb-3 d-flex p-0">
+
+    <img src="./assets/${img}" class="d-block" alt="profile_image">
+
+    <div class="p-3 d-flex flex-column justify-content-around">
+      <h4 class="card-title text-light">${name}</h4>
+      <p class="card-text text-light m-0">${role}</p>
+      <p class="card-text text-primary fw-bold m-0">${email}</p>
+    </div>
+
+  </div>
+  `
+
+  domEl.innerHTML += cardMarkup
+
+}
