@@ -12,10 +12,10 @@
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
 </head>
 
-<body>
+<body class="py-5">
 
 
-    <header class="mt-5">
+    <header>
         <div class="container text-center">
 
             <h1 class="text-danger fw-bold">Meet our Team</h1>
@@ -36,21 +36,31 @@
 
     <main>
         <div class="container">
+
+
+            <form action="" class="mb-5">
+
+                <label for="image">Immagine profilo:</label>
+                <input type="text" class="form-control" placeholder="Immagine del membro">
+
+                <label for="name" class="mt-3">Nome:</label>
+                <input type="text" class="form-control" placeholder="Nome del membro">
+
+                <label for="role" class="mt-3">Ruolo:</label>
+                <input type="text" class="form-control" placeholder="Ruolo del membro">
+
+                <label for="email" class="mt-3">Email:</label>
+                <input type="email" class="form-control" placeholder="Email del membro">
+
+                <div class="d-flex justify-content-end">
+                    <button class="btn btn-danger mt-3">Aggiungi</button>
+                </div>
+
+            </form>
+
+
+
             <div class="row row-cols-1 row-cols-lg-2 row-cols-xxl-3 g-4">
-
-                <!-- <div class="bg-dark mb-3 d-flex p-0">
-
-
-                    <img src="./assets/img/male1.png" class="d-block" alt="profile_image">
-
-                    <div class="p-3 d-flex flex-column justify-content-around">
-                        <h4 class="card-title text-light">Name</h4>
-                        <p class="card-text text-light m-0">Job</p>
-                        <p class="card-text text-primary fw-bold m-0">Mail</small>
-                        </p>
-                    </div>
-
-                </div> -->
 
             </div>
 
