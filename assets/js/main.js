@@ -62,3 +62,9 @@ PSEUDO-CODE
 - per ogni oggetto isolare le 4 chiavi
 - nel markup sostituire le parti di riferimento con le variabili isolate (nome x nome, role x ruolo, ecc.)
 */
+
+
+
+//isolare il nodo della dom dove voglio inserire le card
+const domEl = document.querySelector('main .row')
+console.log(domEl);
