@@ -48,6 +48,17 @@ const cardMarkup = `
     <p class="card-text text-light m-0">Job</p>
     <p class="card-text text-primary fw-bold m-0">Mail</p>
   </div>
-  
+
 </div>
 `
+
+/*
+PSEUDO-CODE
+
+- array di oggetti -> FATTO
+- markup da inserire in pagina -> FATTO
+- isolare il nodo della dom dove voglio inserire le card
+- ciclare all'interno dell'array per recuperare ogni singolo oggetto
+- per ogni oggetto isolare le 4 chiavi
+- nel markup sostituire le parti di riferimento con le variabili isolate (nome x nome, role x ruolo, ecc.)
+*/
