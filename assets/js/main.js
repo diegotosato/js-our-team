@@ -85,14 +85,18 @@ for (let i = 0; i < profiles.length; i++) {
 
 
   const cardMarkup = `
-  <div class="bg-dark mb-3 d-flex p-0">
+  <div class="col">
 
-    <img src="./assets/${img}" class="d-block" alt="profile_image">
+    <div class="bg-dark d-flex p-0">
 
-    <div class="p-3 d-flex flex-column justify-content-around">
-      <h4 class="card-title text-light">${name}</h4>
-      <p class="card-text text-light m-0">${role}</p>
-      <p class="card-text text-primary fw-bold m-0">${email}</p>
+      <img src="./assets/${img}" class="d-block" alt="profile_image">
+
+      <div class="p-3 d-flex flex-column justify-content-around">
+        <h4 class="card-title text-light">${name}</h4>
+        <p class="card-text text-light m-0">${role}</p>
+        <p class="card-text text-primary fw-bold m-0">${email}</p>
+      </div>
+
     </div>
 
   </div>
